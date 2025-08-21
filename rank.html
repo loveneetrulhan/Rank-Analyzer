@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>📈 Rank Analyzer Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: white;
+      padding: 25px 35px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      width: 380px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #ffe4eb;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+      background-color: #ffb6c1;
+      border: 1px solid #ff69b4;
+    }
+
+    button:hover {
+      background-color: #ff8fa0;
+    }
+
+    #instructions {
+      display: none;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>📈 Rank Analyzer Login</h2>
+
+    <label for="role">Role:</label>
+    <select id="role">
+      <option value="Student">Student</option>
+      <option value="Teacher">Teacher</option>
+    </select>
+
+    <label for="id" id="idLabel">SAP ID:</label>
+    <input type="text" id="id" placeholder="Enter ID">
+
+    <div id="codenameField">
+      <label for="codename">Codename:</label>
+      <input type="text" id="codename" placeholder="Enter codename">
+    </div>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password">
+
+    <button onclick="handleLogin()">🔖 Login</button>
+    <button id="registerBtn" onclick="handleRegister()">📝 Register</button>
+    <button onclick="toggleInstructions()">📖 Instructions</button>
+
+    <div id="instructions">
+📘 Instructions for Using This Application
+
+👨‍🎓 For Students:
+1. Password Policy:
+   • Your password cannot be changed once registered.
+   • Store it securely. If you forget it, email 
+     lakshitadixit5@gmail.com or Ananyakripinya@gmail.com (include your SAP ID).
+
+2. Codename Update:
+   • Use the “Change Codename” option after login.
+
+3. Missing/Zero Marks:
+   • “0” may mean you scored zero or marks
+     haven’t been entered yet.
+   • Verify with “View All Marks”.
+
+4. Support:
+   • For issues, email lakshitadixit5@gmail.com or Ananyakripinya@gmail.com
+
+👩‍🏫 For Teachers:
+1. Credentials:
+   • Your Teacher ID & password are fixed.
+
+2. No Changes:
+   • You cannot change your ID or password.
+
+3. Recovery:
+   • If lost, email lakshitadixit5@gmail.com or Ananyakripinya@gmail.com
+     (include your subject).
+    </div>
+  </div>
+
+  <script>
+    const roleSelect = document.getElementById("role");
+    const codenameField = document.getElementById("codenameField");
+    const registerBtn = document.getElementById("registerBtn");
+    const idLabel = document.getElementById("idLabel");
+
+    roleSelect.addEventListener("change", updateForm);
+
+    function updateForm() {
+      if (roleSelect.value === "Student") {
+        codenameField.style.display = "block";
+        registerBtn.style.display = "block";
+        idLabel.textContent = "SAP ID:";
+      } else {
+        codenameField.style.display = "none";
+        registerBtn.style.display = "none";
+        idLabel.textContent = "Teacher ID:";
+      }
+    }
+
+    function handleLogin() {
+      const role = roleSelect.value;
+      const id = document.getElementById("id").value;
+      const codename = document.getElementById("codename").value;
+      const pwd = document.getElementById("password").value;
+
+      alert(Login attempt:\nRole: ${role}\nID: ${id}\nCodename: ${codename}\nPassword: ${pwd});
+    }
+
+    function handleRegister() {
+      alert("Redirecting to student registration page...");
+    }
+
+
+function toggleInstructions() {
+      const instr = document.getElementById("instructions");
+      instr.style.display = instr.style.display === "none" ? "block" : "none";
+    }
+
+    updateForm();
+  </script>
+</body>
+</html>
