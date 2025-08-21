@@ -149,7 +149,11 @@
       const codename = document.getElementById("codename").value;
       const pwd = document.getElementById("password").value;
 
-      alert(Login attempt:\nRole: ${role}\nID: ${id}\nCodename: ${codename}\nPassword: ${pwd});
+      alert(`Login attempt:
+Role: ${role}
+ID: ${id}
+Codename: ${role === "Student" ? codename : "N/A"}
+Password: ${pwd}`);
     }
 
     function handleRegister() {
@@ -165,4 +169,5 @@ function toggleInstructions() {
     updateForm();
   </script>
 </body>
+
 </html>
