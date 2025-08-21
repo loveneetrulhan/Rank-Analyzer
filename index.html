@@ -157,7 +157,11 @@ Password: ${pwd}`);
     }
 
     function handleRegister() {
-      alert("Redirecting to student registration page...");
+      alert(`Login attempt:
+Role: ${role}
+ID: ${id}
+Codename: ${role === "Student" ? codename : "N/A"}
+Password: ${pwd}`);
     }
 
 
@@ -171,3 +175,4 @@ function toggleInstructions() {
 </body>
 
 </html>
+
